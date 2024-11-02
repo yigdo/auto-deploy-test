@@ -1,6 +1,8 @@
 services:
   autodeploytest:
     image: ghcr.io/yigdo/auto-deploy-test:prod
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
     environment:
       - PORT:3030
     ports:
