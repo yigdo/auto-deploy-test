@@ -1,6 +1,5 @@
-version: "3"
 services:
-  cavo:
+  autodeploytest:
     image: ghcr.io/yigdo/autodeploy-test:prod
     environment:
       - PORT:3030
