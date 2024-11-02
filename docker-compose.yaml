@@ -1,6 +1,6 @@
 services:
   autodeploytest:
-    image: ghcr.io/yigdo/autodeploy-test:prod
+    image: ghcr.io/yigdo/auto-deploy-test:prod
     environment:
       - PORT:3030
     ports:
