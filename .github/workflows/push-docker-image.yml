@@ -22,6 +22,7 @@ jobs:
           
       - name: 'Build and Push the Docker Image'
         run: |
+          ls
           docker build . --tag ghcr.io/yigdo/auto-deploy-test:prod
           docker push ghcr.io/yigdo/auto-deploy-test:prod
       
