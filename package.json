@@ -1,0 +1,15 @@
+{
+  "name": "autodeploy-test",
+  "version": "1.0.0",
+  "description": "Auto Deploy Test is a test mainly examining the capabilities of my homelab when it comes to auto-deployments. The main objective is to create a project that auto-renews the code when a new change in the Github repo is made.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}

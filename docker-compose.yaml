@@ -1,0 +1,17 @@
+version: "3"
+services:
+  cavo:
+    image: ghcr.io/yigdo/autodeploy-test:prod
+    environment:
+      - PORT:3030
+    ports:
+      - "3030:3030"
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command:
+      - "--label-enable"
+      - "--interval"
+      - "30"
+      - "--rolling-restart"
