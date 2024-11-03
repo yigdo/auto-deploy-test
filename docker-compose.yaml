@@ -21,7 +21,7 @@ services:
       - "--rolling-restart"
   proxy:
     image: traefik:v3.2
-    command:  |
+    command:
       - "--api.insecure=true"
       - "--providers.docker"
       - "com.centurylinklabs.watchtower.enable=false"
