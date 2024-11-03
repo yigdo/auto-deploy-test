@@ -3,10 +3,13 @@ services:
     image: ghcr.io/yigdo/auto-deploy-test:prod
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
+      - "traefik.http.routers.autodeploytest.rule=Host(`adt.lab.local`)"
     environment:
       - PORT:3030
     ports:
       - "3030:3030"
+    depends_on:
+      - proxy
   watchtower:
     image: containrrr/watchtower
     volumes:
@@ -16,3 +19,15 @@ services:
       - "--interval"
       - "30"
       - "--rolling-restart"
+  proxy:
+    image: traefik:v3.2
+    command:  |
+      - "--api.insecure=true"
+      - "--providers.docker"
+      - "com.centurylinklabs.watchtower.enable=false"
+
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
